@@ -19,5 +19,17 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+pt-BR:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      street: Rua
+      number: Número
+      complement: complemento
+      cep: CEP
+    errors:
+      models:
+        warehouse:
+          attributes:
+            number:
+              blank: Em branco

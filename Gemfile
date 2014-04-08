@@ -27,6 +27,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'bootstrap-sass', '~> 2.3.2.1'
+
 gem 'simple_form'
 
 group :doc do
@@ -37,6 +39,7 @@ end
 group :development, :test do
   gem "rspec-rails"
   gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'selenium-webdriver'
   gem 'debugger'
 end

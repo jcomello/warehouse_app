@@ -1,0 +1,11 @@
+<%= simple_form_for @warehouse, html: {class: 'form-horizontal' } do |form| %>
+  <% if @warehouse.present? %>
+    <div class="alert alert-error">Existem alguns campos obrigatórios não preenchidos</div>
+  <% end %>
+  <%= form.input :street, label: "Rua" %>
+  <%= form.input :number, label: "Número" %>
+  <%= form.input :complement, label: "Complemento" %>
+  <%= form.input :cep, label: "CEP" %>
+
+  <%= form.button :submit, value: "Salvar" %>
+<% end %>
