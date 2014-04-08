@@ -1,26 +1,32 @@
 <h1>Listing providers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<p id="notice"><%= notice %></p>
 
-  <tbody>
-    <% @providers.each do |provider| %>
+<% if @providers.present? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= provider.name %></td>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @providers.each do |provider| %>
+        <tr id="provider_<%= provider.id %>">
+          <td><%= provider.name %></td>
+          <td><%= link_to 'Show', provider %></td>
+          <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+          <td><%= link_to 'Destroy', provider, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Não existem fornecedores salvos</p>
+<% end %>
 
 <br>
 
