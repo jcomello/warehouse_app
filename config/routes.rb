@@ -1,4 +1,6 @@
 WarehouseApp::Application.routes.draw do
+  resources :providers
+
   resources :products
 
   resources :warehouses
