@@ -32,4 +32,10 @@ pt-BR:
         warehouse:
           attributes:
             number:
-              blank: Em branco
+              blank: Número em branco
+        product:
+          attributes:
+            name:
+              blank: Nome em branco
+            provider:
+              blank: Fornecedor em branco

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :product do
-    name "MyString"
-    provider nil
+    sequence(:name) { |n| "Produto #{n}" }
+    provider
   end
 end
