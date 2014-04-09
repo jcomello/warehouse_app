@@ -3,7 +3,7 @@ WarehouseApp::Application.routes.draw do
 
   resources :products
 
-  resources :warehouses
+  resources :warehouses, except: :show
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

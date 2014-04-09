@@ -29,3 +29,24 @@ describe "Create warehouse" do
     end
   end
 end
+
+describe "Edit warehouse" do
+  let!(:warehouse) { FactoryGirl.create(:warehouse) }
+
+  context "when information are complete" do
+    it "Edits a warehouse" do
+      visit edit_warehouse_path(warehouse)
+
+      fill_in 'Rua', :with => 'Av Rio Blanks'
+
+      click_button 'Salvar'
+
+      page.current_path.should eq warehouses_path
+      page.should have_content "Almoxarifado atualizado com sucesso"
+
+      # within "#warehouse_#{warehouse.id} #almoxarifado" do
+      #   page.should have_content 'Av Rio Blanks'
+      # end
+    end
+  end
+end

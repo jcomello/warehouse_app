@@ -1,6 +1,10 @@
 class WarehousesController < ApplicationController
-  def index
+  before_action :set_warehouse, only: [:edit, :update]
 
+  def index
+  end
+
+  def edit
   end
 
   def new
@@ -13,7 +17,15 @@ class WarehousesController < ApplicationController
     if @warehouse.save
       redirect_to warehouses_path
     else
-      render :new
+      render render action: :new
+    end
+  end
+
+  def update
+    if @warehouse.update(warehouse_parameters)
+      redirect_to warehouses_path, notice: 'Almoxarifado atualizado com sucesso'
+    else
+      render action: :edit
     end
   end
 
@@ -21,5 +33,9 @@ class WarehousesController < ApplicationController
 
   def warehouse_parameters
     params.require(:warehouse).permit(:street, :number)
+  end
+
+  def set_warehouse
+    @warehouse = Warehouse.find(params[:id])
   end
 end

@@ -1,0 +1,12 @@
+<%= simple_form_for @warehouse do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :street, label: "Rua" %>
+    <%= f.input :number, label: "Número" %>
+    <%= f.input :complement, label: "Complemento" %>
+    <%= f.input :cep, label: "CEP" %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, value: "Salvar" %>
+  </div>
+<% end %>
