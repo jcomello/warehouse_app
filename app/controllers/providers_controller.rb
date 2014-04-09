@@ -18,22 +18,18 @@ class ProvidersController < ApplicationController
   def create
     @provider = Provider.new(provider_params)
 
-    respond_to do |format|
-      if @provider.save
-        format.html { redirect_to providers_path, notice: 'Fornecedor salvo com sucesso' }
-      else
-        format.html { render action: 'new' }
-      end
+    if @provider.save
+      redirect_to providers_path, notice: 'Fornecedor salvo com sucesso'
+    else
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @provider.update(provider_params)
-        format.html { redirect_to providers_path, notice: 'Fornecedor atualizado com sucesso' }
-      else
-        format.html { render action: 'edit' }
-      end
+    if @provider.update(provider_params)
+      redirect_to providers_path, notice: 'Fornecedor atualizado com sucesso'
+    else
+      render action: 'edit'
     end
   end
 
