@@ -71,3 +71,18 @@ describe "Edit warehouse" do
     end
   end
 end
+
+describe "Delete warehouse" do
+  let!(:warehouse) { FactoryGirl.create(:warehouse) }
+
+  it "deletes a warehouse" do
+    visit warehouses_path
+
+    within "#warehouse_#{warehouse.id}" do
+      click_on 'Destroy'
+    end
+
+    page.should have_no_css "#warehouse_#{warehouse.id}"
+  end
+end
+

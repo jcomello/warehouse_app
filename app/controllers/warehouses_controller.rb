@@ -1,5 +1,5 @@
 class WarehousesController < ApplicationController
-  before_action :set_warehouse, only: [:edit, :update]
+  before_action :set_warehouse, only: [:edit, :update, :destroy]
 
   def index
     @warehouses = Warehouse.all
@@ -28,6 +28,12 @@ class WarehousesController < ApplicationController
     else
       render action: :edit
     end
+  end
+
+  def destroy
+    @warehouse.destroy
+
+    redirect_to warehouses_path
   end
 
   private
