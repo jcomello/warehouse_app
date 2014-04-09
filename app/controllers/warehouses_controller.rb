@@ -2,6 +2,7 @@ class WarehousesController < ApplicationController
   before_action :set_warehouse, only: [:edit, :update]
 
   def index
+    @warehouses = Warehouse.all
   end
 
   def edit
@@ -17,7 +18,7 @@ class WarehousesController < ApplicationController
     if @warehouse.save
       redirect_to warehouses_path
     else
-      render render action: :new
+      render action: :new
     end
   end
 

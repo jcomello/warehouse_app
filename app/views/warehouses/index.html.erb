@@ -1,1 +1,37 @@
+<h1>Listing warehouse</h1>
+
 <p id="notice"><%= notice %></p>
+
+<% if @warehouses.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Provider</th>
+        <th>complement</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @warehouses.each do |warehouse| %>
+        <tr id="warehouse_<%= warehouse.id %>">
+          <td><%= warehouse.street %></td>
+          <td><%= warehouse.number %></td>
+          <td><%= warehouse.complement %></td>
+          <td><%= link_to 'Show', warehouse %></td>
+          <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
+          <td id="destroy"><%= link_to 'Destroy', warehouse, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Não existem almoxarifados salvos</p>
+<% end %>
+
+<br>
+
+<%= link_to 'New warehouse', new_warehouse_path %>

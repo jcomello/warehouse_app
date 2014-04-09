@@ -1,6 +1,27 @@
 # encoding: utf-8
 require "spec_helper"
 
+describe "List warehouse" do
+  context "when there is warehouse" do
+    let!(:warehouse) { FactoryGirl.create(:warehouse) }
+
+    it "shows warehouses" do
+      visit warehouses_path
+
+      page.should have_content warehouse.street
+      page.should have_content warehouse.number
+    end
+  end
+
+  context "when there isn't warehouse" do
+    it "shows no warehouse message" do
+      visit warehouses_path
+
+      page.should have_content "Não existem almoxarifados salvos"
+    end
+  end
+end
+
 describe "Create warehouse" do
   context "when information are complete" do
     it "creates a new warehouse" do
