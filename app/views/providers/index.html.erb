@@ -1,13 +1,12 @@
-<h1><%= t('.title') %></h1>
+<h3><%= t('.title') %></h3>
 
-<p id="notice"><%= notice %></p>
+<%= render partial: "shared/notice", notice: notice %>
 
 <% if @providers.present? %>
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th><%= t('.name') %></th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -16,8 +15,14 @@
       <% @providers.each do |provider| %>
         <tr id="provider_<%= provider.id %>">
           <td><%= provider.name %></td>
-          <td><%= link_to t('.edit'), edit_provider_path(provider) %></td>
-          <td><%= link_to t('.destroy'), provider, method: :delete %></td>
+          <td id="actions">
+            <%= link_to edit_provider_path(provider), class: 'btn btn-info' do %>
+              <%= t('.edit') %>
+            <% end %>
+            <%= link_to provider, class: 'btn btn-danger', method: :delete do %>
+              <%= t('.destroy') %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -26,6 +31,6 @@
   <p><%= t('.no_providers') %></p>
 <% end %>
 
-<br>
-
-<%= link_to t('.new_provider'), new_provider_path %>
+<%= link_to new_provider_path, class: 'btn btn-success' do %>
+  <%= t('.new_provider') %>
+<% end %>
