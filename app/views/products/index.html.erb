@@ -19,9 +19,11 @@
           <td id="provider"><%= product.provider.name %></td>
           <td id="actions">
             <%= link_to edit_product_path(product), class: 'btn btn-info' do %>
+              <span class="glyphicon glyphicon-edit"></span>
               <%= t('.edit') %>
             <% end %>
             <%= link_to product, class: 'btn btn-danger', method: :delete do %>
+              <span class="glyphicon glyphicon-minus-sign"></span>
               <%= t('.destroy') %>
             <% end %>
           </td>
