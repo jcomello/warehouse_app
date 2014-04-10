@@ -6,8 +6,8 @@
     <%= f.input :complement %>
     <%= f.input :cep %>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit, value: t('buttons.save') %>
-    <%= link_to t('navigation.back'), providers_path %>
+  <div class="form-group">
+    <%= f.button :submit, value: t('buttons.save'), class: 'btn btn-default' %>
+    <%= link_to t('navigation.back'), warehouses_path %>
   </div>
 <% end %>

@@ -21,9 +21,12 @@
           <td><%= warehouse.complement %></td>
           <td id="actions">
             <%= link_to edit_warehouse_path(warehouse), class: 'btn btn-info' do %>
+              <span class="glyphicon glyphicon-edit"></span>
+
               <%= t('.edit') %>
             <% end %>
             <%= link_to warehouse, class: 'btn btn-danger', method: :delete do %>
+              <span class="glyphicon glyphicon-minus-sign"></span>
               <%= t('.destroy') %>
             <% end %>
           </td>
