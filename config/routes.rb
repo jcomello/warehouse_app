@@ -1,4 +1,5 @@
 WarehouseApp::Application.routes.draw do
+  devise_for :employees
   resources :providers, except: :show
 
   resources :products, except: :show

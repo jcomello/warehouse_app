@@ -10,6 +10,13 @@
         <li><%= link_to t('header.products'), products_path %></li>
         <li><%= link_to t('header.providers'), providers_path %></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if current_employee.present? %>
+            <%= link_to t('header.logout'), destroy_employee_session_path, method: :delete %>
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
