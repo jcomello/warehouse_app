@@ -1,15 +1,14 @@
 <h1><%= t('.title') %></h1>
 
-<p id="notice"><%= notice %></p>
+<%= render partial: "shared/notice", notice: notice %>
 
 <% if @warehouses.present? %>
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th><%= t('.street') %></th>
         <th><%= t('.number') %></th>
         <th><%= t('.complement') %></th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -20,8 +19,14 @@
           <td><%= warehouse.street %></td>
           <td><%= warehouse.number %></td>
           <td><%= warehouse.complement %></td>
-          <td><%= link_to t('.edit'), edit_warehouse_path(warehouse) %></td>
-          <td id="destroy"><%= link_to t('.destroy'), warehouse, method: :delete %></td>
+          <td id="actions">
+            <%= link_to edit_warehouse_path(warehouse), class: 'btn btn-info' do %>
+              <%= t('.edit') %>
+            <% end %>
+            <%= link_to warehouse, class: 'btn btn-danger', method: :delete do %>
+              <%= t('.destroy') %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -30,6 +35,7 @@
   <p><%= t('.no_warehouses') %></p>
 <% end %>
 
-<br>
+<%= link_to new_warehouse_path, class: 'btn btn-success' do %>
+  <%= t('.new_warehouse') %>
+<% end %>
 
-<%= link_to t('.new_warehouse'), new_warehouse_path %>
