@@ -16,7 +16,7 @@ class WarehousesController < ApplicationController
     @warehouse = Warehouse.new(warehouse_parameters)
 
     if @warehouse.save
-      redirect_to warehouses_path
+      redirect_to warehouses_path, notice: I18n.t('warehouses.notice.create_successful')
     else
       render action: :new
     end
@@ -24,7 +24,7 @@ class WarehousesController < ApplicationController
 
   def update
     if @warehouse.update(warehouse_parameters)
-      redirect_to warehouses_path, notice: 'Almoxarifado atualizado com sucesso'
+      redirect_to warehouses_path, notice: I18n.t('warehouses.notice.update_successful')
     else
       render action: :edit
     end

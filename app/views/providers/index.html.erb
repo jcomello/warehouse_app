@@ -1,4 +1,4 @@
-<h1>Listing providers</h1>
+<h1><%= t('.title') %></h1>
 
 <p id="notice"><%= notice %></p>
 
@@ -6,8 +6,7 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th></th>
+        <th><%= t('.name') %></th>
         <th></th>
         <th></th>
       </tr>
@@ -17,17 +16,16 @@
       <% @providers.each do |provider| %>
         <tr id="provider_<%= provider.id %>">
           <td><%= provider.name %></td>
-          <td><%= link_to 'Show', provider %></td>
-          <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-          <td><%= link_to 'Destroy', provider, method: :delete %></td>
+          <td><%= link_to t('.edit'), edit_provider_path(provider) %></td>
+          <td><%= link_to t('.destroy'), provider, method: :delete %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <p>Não existem fornecedores salvos</p>
+  <p><%= t('.no_providers') %></p>
 <% end %>
 
 <br>
 
-<%= link_to 'New Provider', new_provider_path %>
+<%= link_to t('.new_provider'), new_provider_path %>

@@ -17,7 +17,7 @@ describe "List warehouse" do
     it "shows no warehouse message" do
       visit warehouses_path
 
-      page.should have_content "Não existem almoxarifados salvos"
+      page.should have_content I18n.t('warehouses.index.no_warehouses')
     end
   end
 end
@@ -30,9 +30,10 @@ describe "Create warehouse" do
       fill_in 'Rua', :with => 'Av Rio Branco'
       fill_in 'Número', :with => '23'
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq warehouses_path
+      page.should have_content I18n.t('warehouses.notice.create_successful')
     end
   end
 
@@ -42,11 +43,11 @@ describe "Create warehouse" do
 
       fill_in 'Rua', :with => 'Av Rio Branco'
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq warehouses_path
 
-      page.should have_content "Existem alguns campos obrigatórios não preenchidos"
+      page.should have_content I18n.t('simple_form.error_notification.default_message')
     end
   end
 end
@@ -60,14 +61,14 @@ describe "Edit warehouse" do
 
       fill_in 'Rua', :with => 'Av Rio Blanks'
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq warehouses_path
-      page.should have_content "Almoxarifado atualizado com sucesso"
+      page.should have_content I18n.t('warehouses.notice.update_successful')
 
-      # within "#warehouse_#{warehouse.id} #almoxarifado" do
-      #   page.should have_content 'Av Rio Blanks'
-      # end
+      within "#warehouse_#{warehouse.id}" do
+        page.should have_content 'Av Rio Blanks'
+      end
     end
   end
 end
@@ -79,7 +80,7 @@ describe "Delete warehouse" do
     visit warehouses_path
 
     within "#warehouse_#{warehouse.id}" do
-      click_on 'Destroy'
+      click_on I18n.t('warehouses.index.destroy')
     end
 
     page.should have_no_css "#warehouse_#{warehouse.id}"

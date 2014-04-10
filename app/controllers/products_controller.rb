@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -18,39 +18,33 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to products_path, notice: 'Produto salvo com sucesso' }
-      else
-        format.html { render action: 'new' }
-      end
+    if @product.save
+      redirect_to products_path, notice: I18n.t('products.notice.create_successful')
+    else
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to products_path, notice: 'Produto atualizado com sucesso' }
-      else
-        format.html { render action: 'edit' }
-      end
+    if @product.update(product_params)
+      redirect_to products_path, notice: I18n.t('products.notice.update_successful')
+    else
+      render action: 'edit'
     end
   end
 
   def destroy
     @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url }
-    end
+
+    redirect_to products_url
   end
 
   private
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :provider_id)
-    end
+  def product_params
+    params.require(:product).permit(:name, :provider_id)
+  end
 end

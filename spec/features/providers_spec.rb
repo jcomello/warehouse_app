@@ -16,7 +16,7 @@ describe "List providers" do
     it "shows no providers message" do
       visit providers_path
 
-      page.should have_content "Não existem fornecedores salvos"
+      page.should have_content I18n.t('providers.index.no_providers')
     end
   end
 end
@@ -30,11 +30,11 @@ describe "Create provider" do
 
       fill_in 'Nome', :with => 'Fornecedor 1'
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq providers_path
 
-      page.should have_content "Fornecedor salvo com sucesso"
+      page.should have_content I18n.t('providers.notice.create_successful')
     end
   end
 
@@ -42,11 +42,11 @@ describe "Create provider" do
     it "shows error at new provider page" do
       visit new_provider_path
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq providers_path
 
-      page.should have_content "Por favor revise os erros abaixo"
+      page.should have_content I18n.t('simple_form.error_notification.default_message')
     end
   end
 end
@@ -60,10 +60,10 @@ describe "Edit provider" do
 
       fill_in 'Nome', :with => 'Fornecedor ahahah'
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq providers_path
-      page.should have_content "Fornecedor atualizado com sucesso"
+      page.should have_content I18n.t('providers.notice.update_successful')
 
       within "#provider_#{provider.id}" do
         page.should have_content 'Fornecedor ahahah'
@@ -79,7 +79,7 @@ describe "Delete provider" do
     visit providers_path
 
     within "#provider_#{provider.id}" do
-      click_on 'Destroy'
+      click_on I18n.t('providers.index.destroy')
     end
 
     page.should have_no_css "#provider_#{provider.id}"

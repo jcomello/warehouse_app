@@ -19,7 +19,7 @@ class ProvidersController < ApplicationController
     @provider = Provider.new(provider_params)
 
     if @provider.save
-      redirect_to providers_path, notice: 'Fornecedor salvo com sucesso'
+      redirect_to providers_path, notice: I18n.t('providers.notice.create_successful')
     else
       render action: 'new'
     end
@@ -27,7 +27,7 @@ class ProvidersController < ApplicationController
 
   def update
     if @provider.update(provider_params)
-      redirect_to providers_path, notice: 'Fornecedor atualizado com sucesso'
+      redirect_to providers_path, notice: I18n.t('providers.notice.update_successful')
     else
       render action: 'edit'
     end
@@ -35,10 +35,8 @@ class ProvidersController < ApplicationController
 
   def destroy
     @provider.destroy
-    respond_to do |format|
-      format.html { redirect_to providers_url }
-      format.json { head :no_content }
-    end
+
+    redirect_to providers_url
   end
 
   private

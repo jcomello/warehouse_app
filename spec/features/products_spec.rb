@@ -18,7 +18,7 @@ describe "List products" do
     it "shows no products message" do
       visit products_path
 
-      page.should have_content "Não existem produtos salvos"
+      page.should have_content I18n.t('products.index.no_products')
     end
   end
 
@@ -34,11 +34,11 @@ describe "Create product" do
       fill_in 'Nome', :with => 'Produto 1'
       select provider.name, :from => 'Fornecedor'
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq products_path
 
-      page.should have_content "Produto salvo com sucesso"
+      page.should have_content I18n.t('products.notice.create_successful')
     end
   end
 
@@ -46,11 +46,11 @@ describe "Create product" do
     it "shows error at new product page" do
       visit new_product_path
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq products_path
 
-      page.should have_content "Por favor revise os erros abaixo"
+      page.should have_content I18n.t('simple_form.error_notification.default_message')
     end
   end
 end
@@ -67,10 +67,10 @@ describe "Edit product" do
 
       select other_provider.name, :from => 'Fornecedor'
 
-      click_button 'Salvar'
+      click_button I18n.t('buttons.save')
 
       page.current_path.should eq products_path
-      page.should have_content "Produto atualizado com sucesso"
+      page.should have_content I18n.t('products.notice.update_successful')
 
       within "#product_#{product.id} #provider" do
         page.should have_content other_provider.name
@@ -87,7 +87,7 @@ describe "Delete product" do
     visit products_path
 
     within "#product_#{product.id}" do
-      click_on 'Destroy'
+      click_on I18n.t('products.index.destroy')
     end
 
     page.should have_no_css "#product_#{product.id}"

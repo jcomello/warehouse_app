@@ -1,4 +1,4 @@
-<h1>Listing warehouse</h1>
+<h1><%= t('.title') %></h1>
 
 <p id="notice"><%= notice %></p>
 
@@ -6,10 +6,9 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Provider</th>
-        <th>complement</th>
-        <th></th>
+        <th><%= t('.street') %></th>
+        <th><%= t('.number') %></th>
+        <th><%= t('.complement') %></th>
         <th></th>
         <th></th>
       </tr>
@@ -21,17 +20,16 @@
           <td><%= warehouse.street %></td>
           <td><%= warehouse.number %></td>
           <td><%= warehouse.complement %></td>
-          <td><%= link_to 'Show', warehouse %></td>
-          <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
-          <td id="destroy"><%= link_to 'Destroy', warehouse, method: :delete %></td>
+          <td><%= link_to t('.edit'), edit_warehouse_path(warehouse) %></td>
+          <td id="destroy"><%= link_to t('.destroy'), warehouse, method: :delete %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <p>Não existem almoxarifados salvos</p>
+  <p><%= t('.no_warehouses') %></p>
 <% end %>
 
 <br>
 
-<%= link_to 'New warehouse', new_warehouse_path %>
+<%= link_to t('.new_warehouse'), new_warehouse_path %>

@@ -20,19 +20,92 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
-  hello: "Hello world"
-  activerecord:
-    attributes:
+  buttons:
+    save: Salvar
+  navigation:
+    back: Voltar
+
+  products:
+    notice:
+      create_successful: Produto salvo com sucesso
+      update_successful: Produto atualizado com sucesso
+    index:
+      title: Listar Produtos
+      new_product: Novo Produto
+      no_products: Nenhum produto salvo
+      edit: Editar
+      destroy: Excluir
+      name: Nome
+      provider: Fornecedor
+    new:
+      title: Novo Produto
+    edit:
+      title: Editar Produto
+  providers:
+    notice:
+      create_successful: Fornecedor salvo com sucesso
+      update_successful: Fornecedor atualizado com sucesso
+    index:
+      title: Listar Fornecedores
+      new_provider: Novo Fornecedor
+      no_providers: Nenhum fornecedor salvo
+      edit: Editar
+      destroy: Excluir
+      name: Nome
+    new:
+      title: Novo Fornecedor
+    editar:
+      title: Editar Fornecedor
+  warehouses:
+    notice:
+      create_successful: Almoxarifado salvo com sucesso
+      update_successful: Almoxarifado atualizado com sucesso
+    index:
+      title: Listar Almoxarifados
+      new_warehouse: Novo Almoxarifado
+      no_warehouses: Nenhum almoxarifado salvo
+      edit: Editar
+      destroy: Excluir
       street: Rua
       number: Número
-      complement: complemento
-      cep: CEP
+      complement: Complemento
+    new:
+      title: Novo Almoxarifado
+    editar:
+      title: Editar Almoxarifado
+  activerecord:
+    models:
+      product: Produto
+      provider: Fornecedor
+      warehouse: Almoxarifado
+      employee: Funcionário
+      input: Entrada
+      output: Saída
+    attributes:
+      product:
+        name: Nome
+        provider: Fornecedor
+      provider:
+        name: Nome
+      warehouse:
+        street: Rua
+        number: Número
+        complement: Complemento
+        cep: CEP
+      employee:
+        name: Nome
+      input:
+        quantity: Quantidade
+      output:
+        quantity: Quantidade
     errors:
       models:
         warehouse:
           attributes:
             number:
               blank: Número em branco
+            street:
+              blank: Rua em branco
         product:
           attributes:
             name:

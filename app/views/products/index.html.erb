@@ -1,4 +1,4 @@
-<h1>Listing products</h1>
+<h1><%= t('.title') %></h1>
 
 <p id="notice"><%= notice %></p>
 
@@ -6,9 +6,8 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Provider</th>
-        <th></th>
+        <th><%= t('.name') %></th>
+        <th><%= t('.provider') %></th>
         <th></th>
         <th></th>
       </tr>
@@ -19,17 +18,16 @@
         <tr id="product_<%= product.id %>">
           <td><%= product.name %></td>
           <td id="provider"><%= product.provider.name %></td>
-          <td><%= link_to 'Show', product %></td>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td id="destroy"><%= link_to 'Destroy', product, method: :delete %></td>
+          <td><%= link_to t('.edit'), edit_product_path(product) %></td>
+          <td id="destroy"><%= link_to t('.destroy'), product, method: :delete %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <p>Não existem produtos salvos</p>
+  <p><%= t('.no_products') %></p>
 <% end %>
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to t('.new_product'), new_product_path %>
