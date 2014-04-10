@@ -5,9 +5,6 @@ class ProvidersController < ApplicationController
     @providers = Provider.all
   end
 
-  def show
-  end
-
   def new
     @provider = Provider.new
   end

@@ -1,7 +1,7 @@
 WarehouseApp::Application.routes.draw do
-  resources :providers
+  resources :providers, except: :show
 
-  resources :products
+  resources :products, except: :show
 
   resources :warehouses, except: :show
 
