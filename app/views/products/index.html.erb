@@ -1,14 +1,13 @@
-<h1><%= t('.title') %></h1>
+<h3><%= t('.title') %></h3>
 
-<p id="notice"><%= notice %></p>
+<%= render 'shared/notice', notice: notice %>
 
 <% if @products.present? %>
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th><%= t('.name') %></th>
         <th><%= t('.provider') %></th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -18,8 +17,14 @@
         <tr id="product_<%= product.id %>">
           <td><%= product.name %></td>
           <td id="provider"><%= product.provider.name %></td>
-          <td><%= link_to t('.edit'), edit_product_path(product) %></td>
-          <td id="destroy"><%= link_to t('.destroy'), product, method: :delete %></td>
+          <td id="actions">
+            <%= link_to edit_product_path(product), class: 'btn btn-info' do %>
+              <%= t('.edit') %>
+            <% end %>
+            <%= link_to product, class: 'btn btn-danger', method: :delete do %>
+              <%= t('.destroy') %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -28,6 +33,6 @@
   <p><%= t('.no_products') %></p>
 <% end %>
 
-<br>
-
-<%= link_to t('.new_product'), new_product_path %>
+<%= link_to new_product_path, class: 'btn btn-success' do %>
+  <%= t('.new_product') %>
+<% end %>
