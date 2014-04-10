@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/svenfuchs/i18n.git
+  revision: 8fc94e7e9ec20396e974b0549cf499662238bf56
+  specs:
+    i18n (0.6.9)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -62,7 +68,6 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.3)
     hike (1.2.3)
-    i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -170,6 +175,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   debugger
   factory_girl_rails
+  i18n!
   jbuilder (~> 1.2)
   jquery-rails
   pg
