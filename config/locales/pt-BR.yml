@@ -1,9 +1,14 @@
 pt-BR:
+  application: Almoxarifado
   buttons:
     save: Salvar
   navigation:
     back: Voltar
 
+  header:
+    products: Produtos
+    providers: Fornecedores
+    warehouses: Almoxarifados
   products:
     notice:
       create_successful: Produto salvo com sucesso
