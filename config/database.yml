@@ -1,3 +1,13 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ENV['DATABASE']
+  pool: 5
+  username: ENV['USER']
+  password: ENV['PASSWORD']
+  port: ENV['PORT']
+  host: ENV['HOST']
+
 development:
   adapter: postgresql
   encoding: unicode
