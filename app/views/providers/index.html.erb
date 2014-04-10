@@ -17,9 +17,11 @@
           <td><%= provider.name %></td>
           <td id="actions">
             <%= link_to edit_provider_path(provider), class: 'btn btn-info' do %>
+              <span class="glyphicon glyphicon-edit"></span>
               <%= t('.edit') %>
             <% end %>
             <%= link_to provider, class: 'btn btn-danger', method: :delete do %>
+              <span class="glyphicon glyphicon-minus-sign"></span>
               <%= t('.destroy') %>
             <% end %>
           </td>
