@@ -9,7 +9,7 @@ describe "Inputs" do
     context "when there is inputs" do
       let!(:input) { FactoryGirl.create(:input, employee_id: employee.id) }
 
-      it "shows products" do
+      it "shows intputs" do
         visit inputs_path
 
         page.should have_content employee.name
@@ -23,8 +23,8 @@ describe "Inputs" do
       end
     end
 
-    context "when there isn't products" do
-      it "shows no products message" do
+    context "when there isn't inputs" do
+      it "shows no inputs message" do
         visit inputs_path
 
         page.should have_content I18n.t('inputs.index.no_inputs')
