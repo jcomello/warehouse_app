@@ -25,7 +25,6 @@ describe "CRUD products" do
         page.should have_content I18n.t('products.index.no_products')
       end
     end
-
   end
 
   context "Create product" do

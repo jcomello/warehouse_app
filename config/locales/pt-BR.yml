@@ -57,6 +57,15 @@ pt-BR:
       title: Novo Almoxarifado
     editar:
       title: Editar Almoxarifado
+  inputs:
+    index:
+      title: Listar Entradas
+      new_input: Nova Entrada
+      no_inputs: Nenhuma entrada salva
+      product: Produto
+      warehouse: Almoxarifado
+      employee: Funcionário
+      quantity: Quantidade
   session:
     sign_in: Entrar
     sign_up: Novo cadastro

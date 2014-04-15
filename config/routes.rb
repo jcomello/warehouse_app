@@ -1,10 +1,13 @@
 WarehouseApp::Application.routes.draw do
   devise_for :employees
+
   resources :providers, except: :show
 
   resources :products, except: :show
 
   resources :warehouses, except: :show
+
+  resources :inputs, only: :index
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
