@@ -7,7 +7,7 @@ WarehouseApp::Application.routes.draw do
 
   resources :warehouses, except: :show
 
-  resources :inputs, only: :index
+  resources :inputs, only: [:index, :new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

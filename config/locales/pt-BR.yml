@@ -102,8 +102,12 @@ pt-BR:
         remember_me: Lembrar de mim
       input:
         quantity: Quantidade
+        product: Produto
+        warehouse: Almoxarifado
       output:
         quantity: Quantidade
+        product: Produto
+        warehouse: Almoxarifado
     errors:
       models:
         warehouse:

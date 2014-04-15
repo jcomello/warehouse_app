@@ -1,0 +1,14 @@
+<%= simple_form_for @input do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.input :quantity %>
+    <%= f.association :product %>
+    <%= f.association :warehouse, label_method: :street %>
+  </div>
+
+  <div class="form-group">
+    <%= f.button :submit, value: t('buttons.save'), class: 'btn btn-default' %>
+    <%= link_to t('navigation.back'), inputs_path %>
+  </div>
+<% end %>
