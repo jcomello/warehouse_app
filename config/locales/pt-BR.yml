@@ -66,6 +66,8 @@ pt-BR:
       warehouse: Almoxarifado
       employee: Funcionário
       quantity: Quantidade
+    new:
+      title: Nova entrada
   session:
     sign_in: Entrar
     sign_up: Novo cadastro
