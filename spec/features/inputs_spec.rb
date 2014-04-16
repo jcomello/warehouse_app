@@ -52,6 +52,30 @@ describe "Inputs" do
 
         page.should have_content I18n.t('inputs.notice.create_successful')
       end
+
+      it "adds quantity to stock" do
+        visit new_input_path
+
+        fill_in 'Quantidade', :with => 3
+        select warehouse.street, :from => 'Almoxarifado'
+        select product.name,   :from => 'Produto'
+
+        click_button I18n.t('buttons.save')
+
+        stock = Stock.find_by(product_id: product.id, warehouse_id: warehouse.id)
+
+        stock.reload.quantity.should eq 3
+
+        visit new_input_path
+
+        fill_in 'Quantidade', :with => 5
+        select warehouse.street, :from => 'Almoxarifado'
+        select product.name,   :from => 'Produto'
+
+        click_button I18n.t('buttons.save')
+
+        stock.reload.quantity.should eq 8
+      end
     end
 
     context "when information are not complete" do
@@ -63,6 +87,26 @@ describe "Inputs" do
         page.current_path.should eq inputs_path
 
         page.should have_content I18n.t('simple_form.error_notification.default_message')
+      end
+
+      it "does not add quantity to stock" do
+        visit new_input_path
+
+        fill_in 'Quantidade', :with => 3
+        select warehouse.street, :from => 'Almoxarifado'
+        select product.name,   :from => 'Produto'
+
+        click_button I18n.t('buttons.save')
+
+        stock = Stock.find_by(product_id: product.id, warehouse_id: warehouse.id)
+
+        stock.reload.quantity.should eq 3
+
+        visit new_input_path
+
+        click_button I18n.t('buttons.save')
+
+        stock.reload.quantity.should eq 3
       end
     end
   end
