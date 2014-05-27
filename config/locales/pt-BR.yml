@@ -9,6 +9,7 @@ pt-BR:
     providers: Fornecedores
     warehouses: Almoxarifados
     inputs: Entradas
+    outputs: Saídas
     logout: Sair
   products:
     notice:
@@ -69,6 +70,17 @@ pt-BR:
       quantity: Quantidade
     new:
       title: Nova entrada
+  outputs:
+    index:
+      title: Listar Saídas
+      new_output: Nova Saída
+      no_outputs: Nenhuma saída salva
+      product: Produto
+      warehouse: Almoxarifado
+      employee: Funcionário
+      quantity: Quantidade
+    new:
+      title: Nova Saída
   session:
     sign_in: Entrar
     sign_up: Novo cadastro

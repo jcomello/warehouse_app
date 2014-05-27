@@ -1,0 +1,34 @@
+<h3><%= t('.title') %></h3>
+
+<%= render 'shared/notice', notice: notice %>
+
+<% if @outputs.present? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.product') %></th>
+        <th><%= t('.warehouse') %></th>
+        <th><%= t('.quantity') %></th>
+        <th><%= t('.employee') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @outputs.each do |output| %>
+        <tr id="output_<%= output.id %>">
+          <td><%= output.product.name %></td>
+          <td><%= output.warehouse.street %>, <%= output.warehouse.number %></td>
+          <td><%= output.quantity %></td>
+          <td><%= output.employee.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= t('.no_outputs') %></p>
+<% end %>
+
+<%= link_to new_output_path, class: 'btn btn-success' do %>
+  <span class="glyphicon glyphicon-plus-sign"></span>
+  <%= t('.new_output') %>
+<% end %>
