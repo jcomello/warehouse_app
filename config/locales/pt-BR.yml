@@ -10,6 +10,7 @@ pt-BR:
     warehouses: Almoxarifados
     inputs: Entradas
     outputs: Saídas
+    stocks: Estoque
     logout: Sair
   products:
     notice:
@@ -82,6 +83,13 @@ pt-BR:
       quantity: Quantidade
     new:
       title: Nova Saída
+  stocks:
+    index:
+      title: Estoques
+      product: Produto
+      warehouse: Almoxarifado
+      quantity: Quantidade
+      no_stocks: Seu estoque está vazio
   session:
     sign_in: Entrar
     sign_up: Novo cadastro

@@ -1,0 +1,27 @@
+<h3><%= t('.title') %></h3>
+
+<%= render 'shared/notice', notice: notice %>
+
+<% if @stocks.present? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.product') %></th>
+        <th><%= t('.warehouse') %></th>
+        <th><%= t('.quantity') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @stocks.each do |stock| %>
+        <tr id="stock_<%= stock.id %>">
+          <td><%= stock.product.name %></td>
+          <td><%= stock.warehouse.street %>, <%= stock.warehouse.number %></td>
+          <td><%= stock.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= t('.no_stocks') %></p>
+<% end %>
