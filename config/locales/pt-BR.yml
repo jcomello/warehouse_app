@@ -23,6 +23,7 @@ pt-BR:
       destroy: Excluir
       name: Nome
       provider: Fornecedor
+      total_count: Total de produtos
     new:
       title: Novo Produto
     edit:

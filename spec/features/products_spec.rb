@@ -8,13 +8,21 @@ describe "CRUD products" do
   context "List products" do
     context "when there is products" do
       let(:provider) { FactoryGirl.create(:provider) }
-      let!(:product) { FactoryGirl.create(:product, provider_id: provider.id) }
+      let(:product) { FactoryGirl.create(:product, provider_id: provider.id) }
+      let(:stock) { FactoryGirl.create(:stock, quantity: 34, product: product) }
+
+      before do
+        product.stocks << stock
+      end
 
       it "shows products" do
         visit products_path
 
-        page.should have_content product.name
-        page.should have_content product.provider.name
+        within "#product_#{product.id}" do
+          page.should have_content product.name
+          page.should have_content product.provider.name
+          page.should have_content product.total_count
+        end
       end
     end
 
