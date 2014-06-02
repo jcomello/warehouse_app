@@ -19,6 +19,11 @@ pt-BR:
     outputs: Saídas
     stocks: Estoque
     logout: Sair
+  shared:
+    search_form:
+      search_start: Inicio
+      search_end: Final
+
   products:
     notice:
       create_successful: Produto salvo com sucesso
@@ -91,6 +96,7 @@ pt-BR:
       warehouse: Almoxarifado
       employee: Funcionário
       quantity: Quantidade
+      created_at: Criado em
     new:
       title: Nova Saída
   stocks:

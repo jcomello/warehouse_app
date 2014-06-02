@@ -1,0 +1,8 @@
+<%= form_tag resource_path, :method => 'get' do %>
+  <%= label_tag :search_start, t('.search_start') %>
+  <%= text_field_tag :search_start, params[:search_start] %>
+  <%= label_tag :search_end, t('.search_end') %>
+  <%= text_field_tag :search_end, params[:search_end] %>
+
+  <%= submit_tag t('buttons.search'), :name => nil, class: 'btn btn-default' %>
+<% end %>

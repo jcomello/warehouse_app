@@ -1,6 +1,6 @@
 class OutputsController < ApplicationController
   def index
-    @outputs = Output.all
+    @outputs = Output.search(params)
   end
 
   def new

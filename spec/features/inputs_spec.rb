@@ -24,9 +24,6 @@ describe "Inputs" do
 
       context "search" do
         let!(:other_input) { FactoryGirl.create(:input, employee_id: employee.id, created_at: 2.month.ago) }
-        before do
-          other_input
-        end
 
         it "searchs an input by its creation date range" do
           visit inputs_path

@@ -3,6 +3,9 @@
 <%= render 'shared/notice', notice: notice %>
 
 <% if @outputs.present? %>
+
+  <%= render 'shared/search_form', resource_path: outputs_path %>
+
   <table class="table table-striped">
     <thead>
       <tr>

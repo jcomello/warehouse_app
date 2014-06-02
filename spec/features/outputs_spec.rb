@@ -21,6 +21,26 @@ describe "Outputs" do
         page.should have_content output.warehouse.street
         page.should have_content output.warehouse.number
       end
+
+      context "search" do
+        let!(:other_output) { FactoryGirl.create(:output, employee_id: employee.id, created_at: 2.month.ago) }
+
+        before do
+          other_output
+        end
+
+        it "searchs an output by its creation date range" do
+          visit outputs_path
+
+          fill_in I18n.t('shared.search_form.search_start'), with: I18n.l(1.month.ago)
+          fill_in I18n.t('shared.search_form.search_end'), with: I18n.l(1.month.from_now)
+
+          click_button I18n.t('buttons.search')
+
+          page.should have_no_content other_output.product.name
+          page.should have_content output.product.name
+        end
+      end
     end
 
     context "when there isn't outputs" do
