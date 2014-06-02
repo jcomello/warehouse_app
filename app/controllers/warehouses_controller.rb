@@ -39,7 +39,7 @@ class WarehousesController < ApplicationController
   private
 
   def warehouse_parameters
-    params.require(:warehouse).permit(:street, :number)
+    params.require(:warehouse).permit(:street, :number, :complement, :cep)
   end
 
   def set_warehouse

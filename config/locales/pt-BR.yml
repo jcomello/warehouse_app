@@ -71,7 +71,7 @@ pt-BR:
       complement: Complemento
     new:
       title: Novo Almoxarifado
-    editar:
+    edit:
       title: Editar Almoxarifado
   inputs:
     index:
@@ -160,3 +160,7 @@ pt-BR:
               blank: Nome em branco
             provider:
               blank: Fornecedor em branco
+        stock:
+          attributes:
+            quantity:
+              graeter_than: Você não pode salvar uma saída com quantidade maior que a quantidade total deste prduto no almoxarifado
