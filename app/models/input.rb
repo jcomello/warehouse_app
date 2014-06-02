@@ -9,13 +9,7 @@ class Input < ActiveRecord::Base
     search_start, search_end = options[:search_start], options[:search_end]
 
     return all if search_start.blank? && search_end.blank?
-
-    if search_start.present? && search_end.present?
-      where("created_at >= ? AND created_at <= ?", search_start.to_datetime, search_end.to_datetime)
-    elsif search_start.present?
-      where("created_at >= ?", search_start.to_datetime)
-    elsif search_end.present?
-      where("created_at <= ?", search_end.to_datetime)
-    end
+    where("created_at >= ?", search_start.to_datetime) if search_start.present?
+    where("created_at <= ?", search_end.to_datetime) if search_end.present?
   end
 end
