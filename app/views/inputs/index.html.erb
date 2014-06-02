@@ -3,12 +3,23 @@
 <%= render 'shared/notice', notice: notice %>
 
 <% if @inputs.present? %>
+
+  <%= form_tag inputs_path, :method => 'get' do %>
+    <%= label_tag :search_start, t('.search_start') %>
+    <%= text_field_tag :search_start, params[:search_start] %>
+    <%= label_tag :search_end, t('.search_end') %>
+    <%= text_field_tag :search_end, params[:search_end] %>
+
+    <%= submit_tag t('buttons.search'), :name => nil, class: 'btn btn-default' %>
+  <% end %>
+
   <table class="table table-striped">
     <thead>
       <tr>
         <th><%= t('.product') %></th>
         <th><%= t('.warehouse') %></th>
         <th><%= t('.quantity') %></th>
+        <th><%= t('.created_at') %></th>
         <th><%= t('.employee') %></th>
         <th></th>
       </tr>
@@ -20,6 +31,7 @@
           <td><%= input.product.name %></td>
           <td><%= input.warehouse.street %>, <%= input.warehouse.number %></td>
           <td><%= input.quantity %></td>
+          <td><%= l(input.created_at) %></td>
           <td><%= input.employee.email %></td>
         </tr>
       <% end %>

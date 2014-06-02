@@ -1,6 +1,6 @@
 class InputsController < ApplicationController
   def index
-    @inputs = Input.all
+    @inputs = Input.search(params)
   end
 
   def new

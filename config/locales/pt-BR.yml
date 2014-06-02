@@ -1,7 +1,14 @@
 pt-BR:
+  time:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%b %d"
+      long: "%d %B, %Y"
+
   application: Almoxarifado
   buttons:
     save: Salvar
+    search: Buscar
   navigation:
     back: Voltar
   header:
@@ -64,12 +71,15 @@ pt-BR:
   inputs:
     index:
       title: Listar Entradas
+      search_start: Inicio
+      search_end: Final
       new_input: Nova Entrada
       no_inputs: Nenhuma entrada salva
       product: Produto
       warehouse: Almoxarifado
       employee: Funcionário
       quantity: Quantidade
+      created_at: Criado em
     new:
       title: Nova entrada
   outputs:

@@ -21,6 +21,26 @@ describe "Inputs" do
         page.should have_content input.warehouse.street
         page.should have_content input.warehouse.number
       end
+
+      context "search" do
+        let!(:other_input) { FactoryGirl.create(:input, employee_id: employee.id, created_at: 2.month.ago) }
+        before do
+          other_input
+        end
+
+        it "searchs an input by its creation date range" do
+          visit inputs_path
+
+          fill_in I18n.t('inputs.index.search_start'), with: I18n.l(1.month.ago)
+          fill_in I18n.t('inputs.index.search_end'), with: I18n.l(1.month.from_now)
+
+          click_button I18n.t('buttons.search')
+
+
+          page.should have_no_content other_input.product.name
+          page.should have_content input.product.name
+        end
+      end
     end
 
     context "when there isn't inputs" do
