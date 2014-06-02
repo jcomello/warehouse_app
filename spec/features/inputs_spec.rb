@@ -28,8 +28,8 @@ describe "Inputs" do
         it "searchs an input by its creation date range" do
           visit inputs_path
 
-          fill_in I18n.t('inputs.index.search_start'), with: I18n.l(1.month.ago)
-          fill_in I18n.t('inputs.index.search_end'), with: I18n.l(1.month.from_now)
+          fill_in I18n.t('shared.search_form.search_start'), with: I18n.l(1.month.ago)
+          fill_in I18n.t('shared.search_form.search_end'), with: I18n.l(1.month.from_now)
 
           click_button I18n.t('buttons.search')
 

@@ -76,8 +76,6 @@ pt-BR:
   inputs:
     index:
       title: Listar Entradas
-      search_start: Inicio
-      search_end: Final
       new_input: Nova Entrada
       no_inputs: Nenhuma entrada salva
       product: Produto
